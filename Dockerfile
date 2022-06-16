@@ -22,7 +22,7 @@ COPY ./.flake8 ./
 COPY ./.mypy.ini ./
 # NOTE: Directories can't be copied to `.` or only contents will be copied, so
 # we need one line per dir:
-COPY ./seaiceservice ./seaiceservice
+COPY ./slackbotr ./slackbotr
 COPY ./scripts ./scripts
 COPY ./tasks ./tasks
 
