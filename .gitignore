@@ -10,3 +10,7 @@
 
 # Ephemeral databases
 *.sqlite
+
+# Python stuff
+__pycache__
+.mypy_cache
