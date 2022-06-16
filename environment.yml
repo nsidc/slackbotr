@@ -1,0 +1,57 @@
+name: slackbotr
+channels:
+  - conda-forge
+  - nodefaults
+dependencies:
+############################
+# Conventions:
+# - Use Python version that prevents minor upgrades: ~=3.10.2 prevents upgrade
+#   to 3.11.x
+# - For pre-1.0 dependencies, semver allows breaking changes with minor version
+#   upgrades, so disallow those: ~=0.5.1 prevents upgrade to 0.6.x
+# - For post-1.0 dependencies, minor versions may not include breaking changes,
+#   so allow them: ~=1.6 allows upgrade to 1.7.x
+# - For non-semver dependencies, only allow patches: ~21.11.29 prevents upgrade
+#   to 21.12.x
+############################
+
+############################
+# Development dependencies 
+############################
+- invoke ~=1.6
+- flake8 ~=4.0
+- pytest ~=7.1
+- pytest-order ~=1.0.1
+- bump2version ~=1.0
+- mypy ~=0.931
+- vulture ~=2.0
+- black ~=22.1.0
+- isort ~=5.10.1
+# Can detect certain poor practices; black can't:
+- flake8-bugbear ~=21.11.29
+# Can detect "unnecessary" comprehensions; black can't:
+- flake8-comprehensions ~=3.7
+# Can check the "voice" of a docstring subject; black can't:
+- flake8-docstrings ~=1.6
+
+
+########################
+# Runtime dependencies #
+########################
+- python ~=3.10.2
+
+## Framework stuff
+- fastapi ~=0.74.0
+- pydantic ~=1.9
+- python-jose ~=3.3
+
+## Server stuff
+- gunicorn
+
+## Unimported stuff
+# Optional dependency of fastapi for responses:
+- orjson ~=3.6
+
+
+- pip:
+  - remote-pdb ~=2.1

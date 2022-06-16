@@ -1,0 +1,20 @@
+[flake8]
+max-line-length = 100
+max-complexity = 8
+
+# Temporary. Remove once black re-enabled:
+inline-quotes = '
+
+# flake8-import-order
+application_import_names = slackbotr 
+import_order_style = pycharm
+
+# D1: Ignore errors requiring docstrings on everything.
+# W503: Line breaks should occur after the binary operator to keep all variable names aligned.
+# E731: Lambda assignments are OK, use your best judgement.
+# C408: Unnecessary dict call - rewrite as a literal.
+ignore = D1,W503,E731,C408
+
+# TODO: Why?
+per-file-ignores =
+  ./slackbotr/routers/*:B008

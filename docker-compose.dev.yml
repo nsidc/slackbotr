@@ -1,0 +1,22 @@
+version: '3.4'
+
+services:
+  seaiceservice:
+    image: "nsidc/slackbotr:dev"
+    build: .
+    # Set up for remote debugging:
+    command: "python slackbotr/api.py"
+    environment:
+      PYTHONPATH: "."
+      PYTHONBREAKPOINT: "remote_pdb.set_trace"
+      REMOTE_PDB_HOST: "0.0.0.0"
+      REMOTE_PDB_PORT: "4444"
+    ports:
+      - 80:5000
+      # Remote debugger port:
+      - 4444:4444
+    volumes:
+      # Source code:
+      - ./slackbotr:/opt/slackbotr/slackbotr
+      - ./tasks:/opt/slackbotr/tasks
+      - ./scripts:/opt/slackbotr/scripts

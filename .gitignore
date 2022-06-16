@@ -1,0 +1,12 @@
+# Compose overrides
+/docker-compose.override.yml
+
+# ctags
+/tags
+/TAGS
+
+# vim swapfiles
+.*.swp
+
+# Ephemeral databases
+*.sqlite
