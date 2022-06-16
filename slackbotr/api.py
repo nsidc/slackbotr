@@ -12,7 +12,7 @@ DESCRIPTION = """
 """
 
 api = FastAPI(
-    title='SlackBotr',
+    title='slackbotr',
     description=DESCRIPTION,
     version=VERSION,
     # `orjson` will convert `NaN`s (which are invalid JSON) to `nulls` when
