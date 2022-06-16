@@ -33,15 +33,4 @@ RUN which gunicorn
 EXPOSE 5000
 
 #  https://www.uvicorn.org/deployment/#using-a-process-manager
-CMD [
-  "gunicorn",
-  "slackbotr.api:api",
-  "--workers",
-  "4",
-  "--worker-class",
-  "uvicorn.workers.UvicornWorker",
-  "--bind",
-  "0.0.0.0:5000",
-  "--log-level",
-  "debug",
-]
+CMD ["gunicorn", "slackbotr.api:api", "--workers", "4", "--worker-class", "uvicorn.workers.UvicornWorker", "--bind", "0.0.0.0:5000", "--log-level", "debug"]
