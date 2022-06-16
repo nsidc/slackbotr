@@ -46,6 +46,7 @@ dependencies:
 - python-jose ~=3.3
 
 ## Server stuff
+- uvicorn
 - gunicorn
 
 ## Unimported stuff
