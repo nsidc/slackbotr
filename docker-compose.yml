@@ -2,8 +2,6 @@ version: '3.4'
 
 
 x-base: &base
-  networks:
-    - slackbotr
   restart: always
   logging:
     options:
