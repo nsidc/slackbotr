@@ -40,6 +40,9 @@ authorizes (using an oauth token) your Slackbot to interact with your workspace.
 Install the application to your workspace. NOTE: Multiple workspaces are currently not
 supported!
 
+NOTE: It can be difficult to find the correct application administration page. To get
+there, visit <https://api.slack.com/apps>.
+
 
 #### Scopes
 
