@@ -35,10 +35,9 @@ authorizes (using an authentication token) your Slackbot to send messages to spe
 channels in your Slack Workspace.
 
 
-#### Internal Webhooks for slackbots that send messages to Slack
+### Sending a message
 
-Under `Features > Internal Webhooks`, ensure the feature is enabled. Then, create a
-webhook URL for each channel you would like your slackbots to be able to post to.
+...
 
 
 # TODO:
