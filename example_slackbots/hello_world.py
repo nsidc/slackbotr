@@ -18,5 +18,8 @@ async def root() -> str:
             text="Hello world! :tada: :left_speech_bubble: :earth_asia:",
         )
     except SlackApiError as e:
-        # TODO: Abstract away error-handling from the slackbot interface.
         raise HTTPException(status_code=500, detail=e.response["error"])
+
+    # TODO: Abstract away error-handling and standardized responses from the slackbot
+    # interface.
+    return {'message': 'ok'}
