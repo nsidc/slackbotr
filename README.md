@@ -3,6 +3,14 @@
 A framework for hosting Slackbots. The name is temporary; we couldn't think of one and
 we thought this was funny.
 
+
+## Testing
+
+Set up a testing Slack Application (see "Configuration of Slack") for your workspace.
+Create an internal webhook to your testing channel. Set the environment variables used
+by `docker-compose.yml` and then bring up the stack with `docker-compose up -d`.
+
+
 ## Usage
 
 Build your Slackbots as Python files in an independent directory, then mount them to
