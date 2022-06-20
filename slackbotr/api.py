@@ -5,6 +5,7 @@ from fastapi.responses import ORJSONResponse, HTMLResponse
 from fastapi.middleware.cors import CORSMiddleware
 
 from slackbotr.constants import VERSION
+from slackbotr.routers import slackbots_router
 
 
 DESCRIPTION = """
@@ -23,8 +24,7 @@ api = FastAPI(
 
 api.add_middleware(
     CORSMiddleware,
-    # TODO: consider more restrictive CORS settings. For now, use the
-    # seaiceservice v1 settings (allow EVERYTHING).
+    # TODO: consider more restrictive CORS settings.
     # See: https://fastapi.tiangolo.com/tutorial/cors/
     allow_origins=['*'],
     allow_credentials=True,
@@ -39,6 +39,9 @@ async def root() -> str:
         "Welcome to slackbotr. View the <a href='./docs'>API docs</a>"
         " to see available endpoints."
     )
+
+
+api.include_router(slackbots_router)
 
 
 if __name__ == '__main__':
