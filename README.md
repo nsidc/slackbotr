@@ -31,8 +31,20 @@ bots that respond to commands in Slack, the endpoint requires standard format JS
 
 To make a Slackbot work with a Slack Workspace, you must create a Slack "Application".
 This terminology is confusing, but a Slack Application represents the configuration that
-authorizes (using an authentication token) your Slackbot to send messages to specific
-channels in your Slack Workspace.
+authorizes (using an authentication token) your Slackbot to interact with your
+workspace. 
+
+Install the application to your workspace.
+
+
+#### Scopes
+
+We added `chat:write`, `chat:write.customize`, and `chat:write.public` scopes.
+
+
+#### Token
+
+The token must be populated in the `SLACKBOT_USER_OAUTH_TOKEN` envvar.
 
 
 ### Sending a message
