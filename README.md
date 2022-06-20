@@ -69,4 +69,6 @@ Copy the last part in the format `C0XXXXXXXXX`. This is your channel ID.
 
 * How to enable external services, e.g. CircleCI to communicate with this app? Use a
   security token decorator? ¯\_(ツ)_/¯
-* ...
+* Create a more mature interface for the slackbots instead of creating FastAPI endpoints
+  within each slackbot. We could expect a particular class to be defined for each
+  slackbot, and abstract away error messages and such.
