@@ -3,11 +3,12 @@
 NOTE: Channel is configured in the Slack Application configuration, not in the bot
 itself.
 """
+from fastapi.responses import HTMLResponse
 
-from slackbotr import api
+from slackbotr.routers import slackbots_router
 
 
-@api.get('/test', response_class=HTMLResponse)
+@slackbots_router.get('/test', response_class=HTMLResponse)
 async def root() -> str:
     return "I work!"
     # TODO: Post a message to slack
