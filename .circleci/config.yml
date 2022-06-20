@@ -1,0 +1,31 @@
+version: 2.0
+
+setup: &setup
+  docker:
+    - image: continuumio/miniconda3:4.10.3
+  working_directory: ~/slackbotr
+
+jobs:
+  test:
+    <<: *setup
+    steps:
+      - checkout
+      - run:
+          name: 'Run all tests (lint, config validation, etc.)'
+          command: |
+            conda env create --quiet --file environment-lock.yml 
+            conda init bash
+            /bin/bash --login -c "conda activate slackbotr && inv test"
+
+workflows:
+  version: 2
+
+  # For commits on any branch, only run tests.
+  # For main branch, do a docker build.
+  # For tags vX.Y.Z*, do a docker build and push.
+  test-and-sometimes-release:
+    jobs:
+      - test:
+          filters:
+            tags:
+              only: /.*/ 
