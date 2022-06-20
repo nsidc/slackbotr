@@ -49,7 +49,20 @@ The token must be populated in the `SLACKBOT_USER_OAUTH_TOKEN` envvar.
 
 ### Sending a message
 
-...
+
+#### Getting a channel ID
+
+It's important to use channel IDs when writing slackbots, as channels can be renamed.
+You don't want that to break your bot!
+
+In Slack, right-click on a channel name in your left panel and select Copy URL. You
+should get a URL like:
+
+```
+https://your-workspace.slack.com/archives/C0XXXXXXXXX
+```
+
+Copy the last part in the format `C0XXXXXXXXX`. This is your channel ID.
 
 
 # TODO:
