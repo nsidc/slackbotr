@@ -95,3 +95,4 @@ Copy the last part in the format `C0XXXXXXXXX`. This is your channel ID.
   * Error handling
   * Standardized response messages and codes
 * Authentication: currently anyone can spam our slack by hitting endpoints.
+* Continuous testing
