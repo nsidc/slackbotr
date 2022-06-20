@@ -19,9 +19,22 @@ send a message that depends on no inputs, the endpoint requires no data. For com
 bots that respond to commands in Slack, the endpoint requires standard format JSON data.
 
 
-## Configuration of Slack
+### Configuration of Slack
 
 To make a Slackbot work with a Slack Workspace, you must create a Slack "Application".
 This terminology is confusing, but a Slack Application represents the configuration that
 authorizes (using an authentication token) your Slackbot to send messages to specific
 channels in your Slack Workspace.
+
+
+#### Internal Webhooks for slackbots that send messages to Slack
+
+Under `Features > Internal Webhooks`, ensure the feature is enabled. Then, create a
+webhook URL for each channel you would like your slackbots to be able to post to.
+
+
+# TODO:
+
+* How to enable external services, e.g. CircleCI to communicate with this app? Use a
+  security token decorator? ¯\_(ツ)_/¯
+* ...
