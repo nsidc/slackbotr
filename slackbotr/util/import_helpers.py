@@ -1,4 +1,4 @@
-import importlib
+import importlib.util
 import sys
 
 from slackbotr.constants.paths import SLACKBOTS_DIR
