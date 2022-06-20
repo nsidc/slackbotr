@@ -87,12 +87,23 @@ Copy the last part in the format `C0XXXXXXXXX`. This is your channel ID.
 
 # TODO:
 
-* How to enable external services, e.g. CircleCI to communicate with this app? Use a
-  security token decorator? ¯\_(ツ)_/¯
+* Come up with a better name! Maybe this isn't so much for aggregating slackbots, but
+  general webhook behaviors we'd want to execute internally? e.g. CircleCI triggers
+  this thing to trigger a bot that sends data to an application which isn't externally
+  exposed, like an internal workflow management system or Jenkins machine.
+* Create more example slackbots that do exemplify common use cases:
+  * Slackbots that accept commands
+  * Slackbots that receive data from external service, e.g. CircleCI job could CURL
+    arbitrary JSON to the slackbot, on which it could act to format a message or trigger
+    other stuff.
 * Create a more mature interface for the slackbots instead of creating FastAPI endpoints
   within each slackbot. We could expect a particular class to be defined for each
   slackbot, and abstract away things like:
   * Error handling
   * Standardized response messages and codes
 * Authentication: currently anyone can spam our slack by hitting endpoints.
+  * How to enable external services, e.g. CircleCI to communicate with this app? Use a
+    security token decorator? ¯\_(ツ)_/¯ JWTs?
 * Continuous testing
+* A history endpoint that displays the recently-received triggers and their data? A
+  Slack command to print the history of triggers?
