@@ -11,10 +11,6 @@ x-base: &base
       max-file: "10"
 
 
-networks:
-  slackbotr:
-
-
 services:
 
   slackbotr:
