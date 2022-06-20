@@ -18,3 +18,5 @@ services:
     image: "nsidc/slackbotr"
     volumes:
       - ./example_slackbots:/slackbots
+    environment:
+      - EXAMPLE_SLACKBOT_WEBHOOK_URL
