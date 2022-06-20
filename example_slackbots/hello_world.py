@@ -16,6 +16,8 @@ async def root() -> str:
         response = web_client.chat_postMessage(
             channel="C03KZ8SHCTH",  # This is #slackbotr-testing
             text="Hello world! :tada: :left_speech_bubble: :earth_asia:",
+            username="slackbotr EXAMPLE",
+            icon_emoji=":hammer_and_wrench:",
         )
     except SlackApiError as e:
         raise HTTPException(status_code=500, detail=e.response["error"])
