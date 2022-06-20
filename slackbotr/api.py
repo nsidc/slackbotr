@@ -35,7 +35,10 @@ api.add_middleware(
 
 @api.get('/', response_class=HTMLResponse)
 async def root() -> str:
-    return "<a href='./docs'>View the API Docs</a>"
+    return (
+        "Welcome to slackbotr. View the <a href='./docs'>API docs</a>"
+        " to see available endpoints."
+    )
 
 
 if __name__ == '__main__':
