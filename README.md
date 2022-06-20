@@ -7,34 +7,38 @@ we thought this was funny.
 ## Testing
 
 Set up a testing Slack Application (see "Configuration of Slack") for your workspace.
-Create an internal webhook to your testing channel. Set the environment variables used
-by `docker-compose.yml` and then bring up the stack with `docker-compose up -d`.
+Ensure that you have "installed" your application to your workspace! Set the environment
+variables needed by `docker-compose.yml` and then bring up the stack with
+`docker-compose up -d`.
 
 
 ## Usage
 
-Build your Slackbots as Python files in an independent directory, then mount them to
-`/slackbots` in this application's container. The app will analyze those files, looking
-for a specific interface (functions, classes, TBD; similar to how PyTest finds tests,
-this app finds bots). See `./example_slackbots` for inspiration creating your own.
+Build your Slackbots as Python files in an independent directory (not in this repo),
+then mount them to `/slackbots` in this application container. The app will analyze
+those files, looking for a specific interface (functions, classes, TBD; similar to how
+PyTest finds tests, this app finds bots. Currently, it expects to find FastAPI endpoints
+in each file). See `./example_slackbots` for inspiration creating your own.
 
 For each file containing a compliant interface, a new endpoint is created within
 `slackbotr`, e.g.: for `/slackbots/foo.py`, an endpoint `<HOSTNAME>/foo` will be
 created.
 
-Each endpoint expects to be called with an authentication token. For simple bots that
-send a message that depends on no inputs, the endpoint requires no data. For complex
-bots that respond to commands in Slack, the endpoint requires standard format JSON data.
+Each endpoint expects to be called with an authentication token (NOTE: TODO).
+
+For simple bots that send a message that depends on no inputs, the endpoint requires no
+data. For complex bots that respond to commands in Slack, the endpoint requires standard
+format JSON data.
 
 
 ### Configuration of Slack
 
 To make a Slackbot work with a Slack Workspace, you must create a Slack "Application".
 This terminology is confusing, but a Slack Application represents the configuration that
-authorizes (using an authentication token) your Slackbot to interact with your
-workspace. 
+authorizes (using an oauth token) your Slackbot to interact with your workspace.
 
-Install the application to your workspace.
+Install the application to your workspace. NOTE: Multiple workspaces are currently not
+supported!
 
 
 #### Scopes
@@ -49,6 +53,19 @@ The token must be populated in the `SLACKBOT_USER_OAUTH_TOKEN` envvar.
 
 ### Sending a message
 
+Use the Slack SDK to send a message. `slackbotr` provides a client pre-configured with
+the oauth token provided by the environment variable.
+
+```
+from slackbotr.util.slack import web_client
+
+web_client.chat_postMessage(
+    channel="C0XXXXXXXXX",  # See below to learn how to get a channel ID
+    text="Hello world! :tada: :left_speech_bubble: :earth_asia:",
+    username="slackbotr EXAMPLE",
+    icon_emoji=":hammer_and_wrench:",
+)
+```
 
 #### Getting a channel ID
 
@@ -74,3 +91,4 @@ Copy the last part in the format `C0XXXXXXXXX`. This is your channel ID.
   slackbot, and abstract away things like:
   * Error handling
   * Standardized response messages and codes
+* Authentication: currently anyone can spam our slack by hitting endpoints.
