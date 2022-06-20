@@ -3,6 +3,8 @@
 A framework for hosting Slackbots. The name is temporary; we couldn't think of one and
 we thought this was funny.
 
+## Usage
+
 Build your Slackbots as Python files in an independent directory, then mount them to
 `/slackbots` in this application's container. The app will analyze those files, looking
 for a specific interface (functions, classes, TBD; similar to how PyTest finds tests,
@@ -15,3 +17,11 @@ created.
 Each endpoint expects to be called with an authentication token. For simple bots that
 send a message that depends on no inputs, the endpoint requires no data. For complex
 bots that respond to commands in Slack, the endpoint requires standard format JSON data.
+
+
+## Configuration of Slack
+
+To make a Slackbot work with a Slack Workspace, you must create a Slack "Application".
+This terminology is confusing, but a Slack Application represents the configuration that
+authorizes (using an authentication token) your Slackbot to send messages to specific
+channels in your Slack Workspace.
