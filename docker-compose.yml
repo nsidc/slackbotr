@@ -17,4 +17,4 @@ services:
     volumes:
       - ./example_slackbots:/slackbots
     environment:
-      - EXAMPLE_SLACKBOT_WEBHOOK_URL
+      - SLACKBOT_USER_OAUTH_TOKEN
