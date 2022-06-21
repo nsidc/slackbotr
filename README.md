@@ -96,6 +96,12 @@ docker-compose logs -f
 
 Add a new dependency to `environment.yml`.
 
+Update the installed environment:
+
+```
+conda env update -n slackbotr
+```
+
 Update the environment lockfile:
 
 ```
