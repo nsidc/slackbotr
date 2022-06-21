@@ -53,7 +53,7 @@ them. Additionally, the `slackbotr` instance must be exposed to the public Inter
 Slack can send it a request with data from the user's command.
 
 
-### Sending a message
+### Sending a message (one-way communication)
 
 Use the Slack SDK to send a message. `slackbotr` provides a client pre-configured with
 the oauth token provided by the environment variable.
@@ -82,6 +82,11 @@ https://your-workspace.slack.com/archives/C0XXXXXXXXX
 ```
 
 Copy the last part in the format `C0XXXXXXXXX`. This is your channel ID.
+
+
+### Interactivity (two-way communication)
+
+https://api.slack.com/interactivity
 
 
 ## Development
@@ -153,7 +158,7 @@ variables needed by `docker-compose.yml` and then bring up the stack with
 
 **NOTE**: Testing _interactions_ (two-way communications, as opposed to simply sending
 messages to Slack from a bot) is only possible if your `slackbotr` instance is
-available on the public Internet.
+available on the public Internet. Slack has to be able to send messages to your bot.
 
 
 # TODO:
