@@ -36,14 +36,21 @@ NOTE: It can be difficult to find the correct application administration page. T
 there, visit <https://api.slack.com/apps>.
 
 
+#### Token
+
+The token must be populated in the `SLACKBOT_USER_OAUTH_TOKEN` envvar.
+
+
 #### Scopes
 
 We added `chat:write`, `chat:write.customize`, and `chat:write.public` scopes.
 
 
-#### Token
+#### Slash commands
 
-The token must be populated in the `SLACKBOT_USER_OAUTH_TOKEN` envvar.
+These must be configured within the Slack Application before your slackbots can use
+them. Additionally, the `slackbotr` instance must be exposed to the public Internet so
+Slack can send it a request with data from the user's command.
 
 
 ### Sending a message
@@ -144,6 +151,9 @@ Ensure that you have "installed" your application to your workspace! Set the env
 variables needed by `docker-compose.yml` and then bring up the stack with
 `docker-compose up -d`.
 
+**NOTE**: Testing _interactions_ (two-way communications, as opposed to simply sending
+messages to Slack from a bot) is only possible if your `slackbotr` instance is
+available on the public Internet.
 
 
 # TODO:
