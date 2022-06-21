@@ -1,7 +1,7 @@
 name: slackbotr
 channels:
   - conda-forge
-  - nodefaults
+  - defaults
 dependencies:
   - _libgcc_mutex=0.1=conda_forge
   - _openmp_mutex=4.5=2_gnu
@@ -66,8 +66,6 @@ dependencies:
   - rsa=4.8=pyhd8ed1ab_0
   - setuptools=62.6.0=py310hff52083_0
   - six=1.16.0=pyh6c4a22f_0
-  - slack-sdk=3.17.1=pyha770c72_0
-  - slack_sdk=3.17.1=hd8ed1ab_0
   - sniffio=1.2.0=py310hff52083_3
   - snowballstemmer=2.2.0=pyhd8ed1ab_0
   - sqlite=3.38.5=h4ff8645_0
@@ -87,3 +85,4 @@ dependencies:
   - zlib=1.2.12=h166bdaf_1
   - pip:
     - remote-pdb==2.1.0
+prefix: /opt/miniconda/envs/slackbotr
