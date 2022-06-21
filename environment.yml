@@ -24,9 +24,9 @@ dependencies:
 - pytest-order ~=1.0.1
 - bump2version ~=1.0
 - mypy ~=0.931
-- shellcheck ~=0.8.0  
+- shellcheck ~=0.8.0
 - vulture ~=2.0
-- black ~=22.1.0
+- black ~=22.3.0
 - isort ~=5.10.1
 # Can detect certain poor practices; black can't:
 - flake8-bugbear ~=21.11.29
