@@ -4,14 +4,6 @@ A framework for hosting Slackbots. The name is temporary; we couldn't think of o
 we thought this was funny.
 
 
-## Testing
-
-Set up a testing Slack Application (see "Configuration of Slack") for your workspace.
-Ensure that you have "installed" your application to your workspace! Set the environment
-variables needed by `docker-compose.yml` and then bring up the stack with
-`docker-compose up -d`.
-
-
 ## Usage
 
 Build your Slackbots as Python files in an independent directory (not in this repo),
@@ -83,6 +75,75 @@ https://your-workspace.slack.com/archives/C0XXXXXXXXX
 ```
 
 Copy the last part in the format `C0XXXXXXXXX`. This is your channel ID.
+
+
+## Development
+
+Bring up the stack:
+
+```
+docker-compose up -d
+```
+
+View the logs:
+
+```
+docker-compose logs -f
+```
+
+
+### Update the environment
+
+Add a new dependency to `environment.yml`.
+
+Update the installed environment:
+
+```
+conda env update -n slackbotr
+```
+
+Update the environment lockfile:
+
+```
+inv env.lock
+```
+
+**NOTE**: Don't forget to rebuild the docker images after updating the lockfile:
+
+```
+docker-compose build
+```
+
+
+### Format the code
+
+```
+inv format
+```
+
+
+### Testing / static analysis 
+
+Start the suite of static analysis and tests:
+
+```
+inv test
+```
+
+Learn more about available tests:
+
+```
+inv --list
+```
+
+
+#### Testing the example slackbots
+
+Set up a testing Slack Application (see "Configuration of Slack") for your workspace.
+Ensure that you have "installed" your application to your workspace! Set the environment
+variables needed by `docker-compose.yml` and then bring up the stack with
+`docker-compose up -d`.
+
 
 
 # TODO:
