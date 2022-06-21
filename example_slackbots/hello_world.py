@@ -10,7 +10,7 @@ from slackbotr.routers import slackbots_router
 from slackbotr.util.slack import web_client
 
 
-@slackbots_router.get('/test')
+@slackbots_router.get('/hello-world')
 async def root() -> str:
     try:
         response = web_client.chat_postMessage(
