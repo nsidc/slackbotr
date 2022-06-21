@@ -102,6 +102,12 @@ Update the environment lockfile:
 inv env.lock
 ```
 
+**NOTE**: Don't forget to rebuild the docker images after updating the lockfile:
+
+```
+docker-compose build
+```
+
 
 ### Format the code
 
