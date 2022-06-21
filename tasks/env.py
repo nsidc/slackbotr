@@ -23,4 +23,10 @@ def lock(ctx):
             if '- nsidc' in line:
                 continue
 
+            # We want to replace the "defaults" channel with "nodefaults" so conda-forge
+            # is used for everything.
+            if '- defaults' in line:
+                f.write(line.replace('- defaults', '- nodefaults'))
+                continue
+
             f.write(line)
