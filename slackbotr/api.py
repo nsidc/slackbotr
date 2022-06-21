@@ -1,12 +1,9 @@
-from typing import Any, Callable
-
-from fastapi import FastAPI, Request
-from fastapi.responses import ORJSONResponse, HTMLResponse
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import HTMLResponse, ORJSONResponse
 
 from slackbotr.constants import VERSION
 from slackbotr.routers import slackbots_router
-
 
 DESCRIPTION = """
 ❄️  A slackbot host ❄️
@@ -47,6 +44,7 @@ api.include_router(slackbots_router)
 if __name__ == '__main__':
     # Run this script directly for debugging. See documentation for more info.
     import uvicorn
+
     uvicorn.run(
         # Normally, we'd just pass in `api` here, but `reload=True` requires the
         # string:
