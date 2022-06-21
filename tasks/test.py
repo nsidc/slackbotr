@@ -96,9 +96,9 @@ def regressiontest(ctx):
         lint,
         formatcheck,
         typecheck,
-        unittest,
-        integrationtest,
-        regressiontest,
+        # unittest,
+        # integrationtest,
+        # regressiontest,
     ],
     default=True,
 )
@@ -113,8 +113,8 @@ def all(ctx):
         lint,
         formatcheck,
         typecheck,
-        unittest,
-        integrationtest,
+        # unittest,
+        # integrationtest,
     ],
 )
 def ci(ctx):
