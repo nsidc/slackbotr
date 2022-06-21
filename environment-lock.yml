@@ -8,7 +8,7 @@ dependencies:
   - anyio=3.6.1=py310hff52083_0
   - asgiref=3.5.2=pyhd8ed1ab_0
   - attrs=21.4.0=pyhd8ed1ab_0
-  - black=22.1.0=pyhd8ed1ab_0
+  - black=22.3.0=pyhd8ed1ab_0
   - bump2version=1.0.1=pyh9f0ad1d_0
   - bzip2=1.0.8=h7f98852_4
   - ca-certificates=2022.6.15=ha878542_0
@@ -65,6 +65,7 @@ dependencies:
   - readline=8.1.2=h0f457ee_0
   - rsa=4.8=pyhd8ed1ab_0
   - setuptools=62.6.0=py310hff52083_0
+  - shellcheck=0.8.0=ha770c72_0
   - six=1.16.0=pyh6c4a22f_0
   - slack-sdk=3.17.1=pyha770c72_0
   - slack_sdk=3.17.1=hd8ed1ab_0
