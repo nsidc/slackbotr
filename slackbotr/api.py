@@ -1,12 +1,9 @@
-from typing import Any, Callable
-
-from fastapi import FastAPI, Request
-from fastapi.responses import ORJSONResponse, HTMLResponse
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import HTMLResponse, ORJSONResponse
 
 from slackbotr.constants import VERSION
 from slackbotr.routers import slackbots_router
-
 
 DESCRIPTION = """
 ❄️  A slackbot host ❄️

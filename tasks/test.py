@@ -16,8 +16,7 @@ def shellcheck(ctx):
         f'cd {PROJECT_DIR} &&'
         f' for file in $(find {SCRIPTS_DIR} -type f -name "*.sh"); do'
         '    shellcheck $file;'
-        '  done'
-        f' && shellcheck {PROJECT_DIR}/deploy/deploy',
+        '  done',
         pty=True,
     )
 
