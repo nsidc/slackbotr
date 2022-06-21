@@ -85,4 +85,3 @@ dependencies:
   - zlib=1.2.12=h166bdaf_1
   - pip:
     - remote-pdb==2.1.0
-prefix: /opt/miniconda/envs/slackbotr
