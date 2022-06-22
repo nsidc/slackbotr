@@ -122,25 +122,39 @@ This software was developed by the National Snow and Ice Data Center with fundin
 # TODO:
 
 * Come up with a better name! Maybe this isn't so much for aggregating slackbots, but
-  general webhook behaviors we'd want to execute internally? e.g. CircleCI triggers
-  this thing to trigger a bot that sends data to an application which isn't externally
-  exposed, like an internal workflow management system or Jenkins machine.
-* Create more example slackbots that do exemplify common use cases:
-  * Slackbots that accept commands
-  * Slackbots that receive data from external service, e.g. CircleCI job could CURL
-    arbitrary JSON to the slackbot, on which it could act to format a message or trigger
-    other stuff.
+  general triggered (webhook, cron, human, ???) behaviors (bots) we'd want to execute on
+  an internal network? e.g.  CircleCI triggers this application to run a bot that sends
+  data to an application or service which isn't publicly accessible, like an internal
+  workflow management system or Jenkins machine (accessible by running `slackbotr` on
+  the same internal network), or a Slack Application installed in a private Slack
+  Workspace (accessible by providing access tokens via environment variables to your
+  bots).
+  * Once this project knows what it wants to be, review all content in this repository
+    and re-organize for simplicity.
+  * Why are we making this and not using an off-the-shelf task runner like
+    Drone/Jenkins? Is the simplicity of delivering bots as a directory of Python
+    scripts the main reason to build this?
+* Create more example bots that exemplify common use cases:
+  * Two-way communication (See `ARCHP-9` in Jira):
+    * Bots that accept Slack slash commands
+    * Bots that receive data from external service, e.g. CircleCI job could CURL
+      arbitrary JSON to the slackbot, on which it could act to format a message or
+      trigger other stuff that CircleCI couldn't.
 * Create a more mature interface for the slackbots instead of creating FastAPI endpoints
   within each slackbot. We could expect a particular class to be defined for each
   slackbot, and abstract away things like:
   * Error handling
   * Standardized response messages and codes
-* Authentication: currently anyone can spam our slack by hitting endpoints.
-  * How to enable external services, e.g. CircleCI to communicate with this app? Use a
-    security token decorator? ¯\_(ツ)_/¯ JWTs?
+* **Authentication**
+  * Do we need to support multiple tokens each with different scopes of access? Can we
+    safely use data within tokens to authorize scopes? It could be as simple as defining
+    a `scope=...` parameter when instantiating a bot, and generating tokens with
+    `{"scope": "..."}`.
   * Do we need to have a database of tokens that can be revoked? With stateless tokens,
-    e.g. JWTs, all tokens must be revoked at once. So JWTs would be a poor choice if we
-    needed granular revocation.
-* Continuous testing
+    e.g. JWTs, all tokens generated with the same secret key must be revoked at once. So
+    JWTs would be a poor choice if we need granular revocation.
+  * JWTs contain encoded, _not encrypted_, data. We don't send anything sensitive at the
+    moment and we must be cautious not to change the code in the future to include
+    sensitive data within tokens.
 * A history endpoint that displays the recently-received triggers and their data? A
   Slack command to print the history of triggers?
