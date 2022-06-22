@@ -6,11 +6,7 @@ from jose import jwt
 from loguru import logger
 
 # TODO: JWT_EXPIRY_MINUTES ?
-from slackbotr.constants.auth import (
-    JWT_ALGORITHM,
-    JWT_DATA,
-    JWT_SECRET_KEY,
-)
+from slackbotr.constants.auth import JWT_ALGORITHM, JWT_DATA, JWT_SECRET_KEY
 
 # Learn more about JWT payload:
 #    https://jwt.io/introduction
