@@ -1,8 +1,4 @@
-"""An example slackbot that simply sends "Hello world" to the configured channel.
-
-NOTE: Channel is configured in the Slack Application configuration, not in the bot
-itself.
-"""
+"""An example slackbot that simply sends "Hello world" to the configured channel."""
 from fastapi import HTTPException
 from slack_sdk.errors import SlackApiError
 
