@@ -1,6 +1,5 @@
 import os
 
-
 JWT_SECRET_KEY = os.environ['SLACKBOTR_SECRET_KEY']
 JWT_ALGORITHM = 'HS256'
 

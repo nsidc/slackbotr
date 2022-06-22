@@ -5,10 +5,10 @@ from fastapi.security import HTTPAuthorizationCredentials, HTTPBearer
 from jose import jwt
 from loguru import logger
 
+# TODO: JWT_EXPIRY_MINUTES ?
 from slackbotr.constants.auth import (
     JWT_ALGORITHM,
     JWT_DATA,
-    # JWT_EXPIRY_MINUTES,
     JWT_SECRET_KEY,
 )
 
@@ -59,7 +59,9 @@ class JWTBearer(HTTPBearer):
     async def __call__(self, request: Request) -> None:
         # The parent class extracts credentials from the header and does some simple
         # validation, like ensuring an 'Authorization: Bearer' header is passed.
-        credentials: HTTPAuthorizationCredentials | None = await super().__call__(request)
+        credentials: HTTPAuthorizationCredentials | None = await super().__call__(
+            request
+        )
 
         # If `auto_error` is `False`, the parent class could return `None` for
         # credentials.
