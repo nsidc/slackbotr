@@ -18,3 +18,4 @@ services:
       - ./example_slackbots:/slackbots
     environment:
       - SLACKBOT_USER_OAUTH_TOKEN
+      - SLACKBOTR_SECRET_KEY
