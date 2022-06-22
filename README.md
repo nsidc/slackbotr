@@ -36,9 +36,10 @@ NOTE: It can be difficult to find the correct application administration page. T
 there, visit <https://api.slack.com/apps>.
 
 
-#### Token
+#### Slack OAuth Token
 
-The token must be populated in the `SLACKBOT_USER_OAUTH_TOKEN` envvar.
+The Slack authentication token must be populated in the `SLACKBOT_USER_OAUTH_TOKEN`
+envvar.
 
 
 #### Scopes
@@ -180,6 +181,9 @@ available on the public Internet. Slack has to be able to send messages to your 
 * Authentication: currently anyone can spam our slack by hitting endpoints.
   * How to enable external services, e.g. CircleCI to communicate with this app? Use a
     security token decorator? ¯\_(ツ)_/¯ JWTs?
+  * Do we need to have a database of tokens that can be revoked? With stateless tokens,
+    e.g. JWTs, all tokens must be revoked at once. So JWTs would be a poor choice if we
+    needed granular revocation.
 * Continuous testing
 * A history endpoint that displays the recently-received triggers and their data? A
   Slack command to print the history of triggers?
