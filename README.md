@@ -17,7 +17,7 @@ NOTE: This software is in the early stages of development -**DO NOT USE IN PRODU
 ## Requirements
 
 This package requires:
-* docker
+* docker 3.4
 
 
 ## Usage
