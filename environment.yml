@@ -46,6 +46,7 @@ dependencies:
 - fastapi ~=0.74.0
 - pydantic ~=1.9
 - python-jose ~=3.3
+- loguru ~=0.6.0
 
 ## Server stuff
 - uvicorn

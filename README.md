@@ -36,17 +36,25 @@ NOTE: It can be difficult to find the correct application administration page. T
 there, visit <https://api.slack.com/apps>.
 
 
+#### Slack OAuth Token
+
+The Slack authentication token must be populated in the `SLACKBOT_USER_OAUTH_TOKEN`
+envvar.
+
+
 #### Scopes
 
 We added `chat:write`, `chat:write.customize`, and `chat:write.public` scopes.
 
 
-#### Token
+#### Slash commands
 
-The token must be populated in the `SLACKBOT_USER_OAUTH_TOKEN` envvar.
+These must be configured within the Slack Application before your slackbots can use
+them. Additionally, the `slackbotr` instance must be exposed to the public Internet so
+Slack can send it a request with data from the user's command.
 
 
-### Sending a message
+### Sending a message (one-way communication)
 
 Use the Slack SDK to send a message. `slackbotr` provides a client pre-configured with
 the oauth token provided by the environment variable.
@@ -75,6 +83,11 @@ https://your-workspace.slack.com/archives/C0XXXXXXXXX
 ```
 
 Copy the last part in the format `C0XXXXXXXXX`. This is your channel ID.
+
+
+### Interactivity (two-way communication)
+
+https://api.slack.com/interactivity
 
 
 ## Development
@@ -144,6 +157,9 @@ Ensure that you have "installed" your application to your workspace! Set the env
 variables needed by `docker-compose.yml` and then bring up the stack with
 `docker-compose up -d`.
 
+**NOTE**: Testing _interactions_ (two-way communications, as opposed to simply sending
+messages to Slack from a bot) is only possible if your `slackbotr` instance is
+available on the public Internet. Slack has to be able to send messages to your bot.
 
 
 # TODO:
@@ -165,6 +181,9 @@ variables needed by `docker-compose.yml` and then bring up the stack with
 * Authentication: currently anyone can spam our slack by hitting endpoints.
   * How to enable external services, e.g. CircleCI to communicate with this app? Use a
     security token decorator? ¯\_(ツ)_/¯ JWTs?
+  * Do we need to have a database of tokens that can be revoked? With stateless tokens,
+    e.g. JWTs, all tokens must be revoked at once. So JWTs would be a poor choice if we
+    needed granular revocation.
 * Continuous testing
 * A history endpoint that displays the recently-received triggers and their data? A
   Slack command to print the history of triggers?

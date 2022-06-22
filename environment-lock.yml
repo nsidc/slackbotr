@@ -37,6 +37,7 @@ dependencies:
   - libnsl=2.0.0=h7f98852_0
   - libuuid=2.32.1=h7f98852_1000
   - libzlib=1.2.12=h166bdaf_1
+  - loguru=0.6.0=py310hff52083_1
   - mccabe=0.6.1=py_1
   - mypy=0.961=py310h5764c6d_0
   - mypy_extensions=0.4.3=py310hff52083_5
@@ -67,8 +68,8 @@ dependencies:
   - setuptools=62.6.0=py310hff52083_0
   - shellcheck=0.8.0=ha770c72_0
   - six=1.16.0=pyh6c4a22f_0
-  - slack-sdk=3.17.1=pyha770c72_0
-  - slack_sdk=3.17.1=hd8ed1ab_0
+  - slack-sdk=3.17.2=pyha770c72_0
+  - slack_sdk=3.17.2=hd8ed1ab_0
   - sniffio=1.2.0=py310hff52083_3
   - snowballstemmer=2.2.0=pyhd8ed1ab_0
   - sqlite=3.38.5=h4ff8645_0
