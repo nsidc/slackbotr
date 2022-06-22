@@ -4,6 +4,22 @@ A framework for hosting Slackbots. The name is temporary; we couldn't think of o
 we thought this was funny.
 
 
+## Level of Support
+This repository is not actively supported by NSIDC but we welcome issue submissions and 
+pull requests in order to foster community contribution.
+
+See the [LICENSE](LICENSE) for details on permissions and warranties. Please contact 
+nsidc@nsidc.org for more information.
+
+NOTE: This software is in the early stages of development -**DO NOT USE IN PRODUCTION**.
+
+
+## Requirements
+
+This package requires:
+* docker
+
+
 ## Usage
 
 Build your Slackbots as Python files in an independent directory (not in this repo),
@@ -90,76 +106,17 @@ Copy the last part in the format `C0XXXXXXXXX`. This is your channel ID.
 https://api.slack.com/interactivity
 
 
-## Development
+## License
 
-Bring up the stack:
+See [LICENSE](LICENSE).
 
-```
-docker-compose up -d
-```
+## Code of Conduct
 
-View the logs:
+See [Code of Conduct](CODE_OF_CONDUCT.md).
 
-```
-docker-compose logs -f
-```
+## Credit
 
-
-### Update the environment
-
-Add a new dependency to `environment.yml`.
-
-Update the installed environment:
-
-```
-conda env update -n slackbotr
-```
-
-Update the environment lockfile:
-
-```
-inv env.lock
-```
-
-**NOTE**: Don't forget to rebuild the docker images after updating the lockfile:
-
-```
-docker-compose build
-```
-
-
-### Format the code
-
-```
-inv format
-```
-
-
-### Testing / static analysis 
-
-Start the suite of static analysis and tests:
-
-```
-inv test
-```
-
-Learn more about available tests:
-
-```
-inv --list
-```
-
-
-#### Testing the example slackbots
-
-Set up a testing Slack Application (see "Configuration of Slack") for your workspace.
-Ensure that you have "installed" your application to your workspace! Set the environment
-variables needed by `docker-compose.yml` and then bring up the stack with
-`docker-compose up -d`.
-
-**NOTE**: Testing _interactions_ (two-way communications, as opposed to simply sending
-messages to Slack from a bot) is only possible if your `slackbotr` instance is
-available on the public Internet. Slack has to be able to send messages to your bot.
+This software was developed by the National Snow and Ice Data Center with funding from multiple sources.
 
 
 # TODO:
