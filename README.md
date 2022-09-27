@@ -3,8 +3,12 @@
 A framework for hosting Slackbots. The name is temporary; we couldn't think of one and
 we thought this was funny.
 
+NOTE: We're not actively developing this solution anymore, as we've discovered existing
+alternatives, e.g. `slack-machine` and `errbot`.
+
 
 ## Level of Support
+
 This repository is not actively supported by NSIDC but we welcome issue submissions and 
 pull requests in order to foster community contribution.
 
@@ -17,6 +21,7 @@ NOTE: This software is in the early stages of development -**DO NOT USE IN PRODU
 ## Requirements
 
 This package requires:
+
 * docker
 
 
